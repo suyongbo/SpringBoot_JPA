@@ -18,6 +18,7 @@ public interface ProductInfoService {
      */
     ProductInfo findOne(String productId);
 
+
     /**
      * up 在枚举里面表示上架的商品   这里便是查询所有上架的商品
      * @return
