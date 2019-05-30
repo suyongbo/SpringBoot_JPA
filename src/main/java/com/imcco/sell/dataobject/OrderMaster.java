@@ -25,7 +25,7 @@ public class OrderMaster {
 
     private  String buyerAddress;//买家地址
 
-    private  String buyerOpenId;//买家openid
+    private  String buyerOpenid;//买家openid
 
     private BigDecimal orderAmount;//订单总金额
 

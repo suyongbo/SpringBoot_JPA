@@ -1,6 +1,7 @@
 package com.imcco.sell.service;
 
 import com.imcco.sell.dataobject.ProductInfo;
+import com.imcco.sell.dto.CartDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -53,5 +54,15 @@ public interface ProductInfoService {
      */
     ProductInfo offSale(String productId);
 
+    /**
+     * 增加商品库存
+     * @param cartDTOList
+     */
+    void increaseStock(List<CartDTO> cartDTOList);
 
+    /**
+     * 减少商品库存
+     * @param cartDTOList
+     */
+    void decreaseStock(List<CartDTO> cartDTOList);
 }

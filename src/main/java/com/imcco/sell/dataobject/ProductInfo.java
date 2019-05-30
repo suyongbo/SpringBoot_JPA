@@ -8,6 +8,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 
 /**
@@ -16,6 +17,7 @@ import java.math.BigDecimal;
 @Entity
 @Data
 @DynamicUpdate
+@Table(name= "product_info")
 public class ProductInfo {
 
     @Id
