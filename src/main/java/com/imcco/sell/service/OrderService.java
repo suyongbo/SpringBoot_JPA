@@ -27,7 +27,7 @@ public interface OrderService {
      * @param buyerOpenId
      * @return
      */
-    Page<OrderDTO> findList(String buyerOpenId);
+    Page<OrderDTO> findList(String buyerOpenId,Pageable pageable);
 
     /**
      * 取消订单

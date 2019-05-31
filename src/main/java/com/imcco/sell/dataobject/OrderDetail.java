@@ -5,6 +5,7 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 /**
  * 订单详情
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 @DynamicUpdate
 public class OrderDetail {
     @Id
-    private  String datailId;
+    private  String detailId;
 
     private  String orderId;
 
@@ -22,9 +23,9 @@ public class OrderDetail {
 
     private  String productName;//商品名称
 
-    private  String productPrice;//商品单价
+    private BigDecimal productPrice;//商品单价
 
-    private  String productQuantity;//商品数量
+    private  Integer productQuantity;//商品数量
 
     private  String productIcon;//商品小图
 

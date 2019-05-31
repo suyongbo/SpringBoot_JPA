@@ -25,8 +25,12 @@ public class ProductInfoServiceImpl implements ProductInfoService {
     @Override
     public ProductInfo findOne(String productId) {
         //版本问题 多次封装 需要get()
-        Optional<ProductInfo> productInfo = repository.findById(productId);
-         return productInfo.get();
+        Optional<ProductInfo> productInfo1 = repository.findById(productId);
+        ProductInfo productInfo = productInfo1.isPresent()?productInfo1.get():null;
+        if (productInfo == null){
+            throw new RuntimeException("查询结果为空");
+        }
+         return productInfo;
     }
 
     @Override
