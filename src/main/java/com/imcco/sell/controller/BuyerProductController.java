@@ -63,8 +63,8 @@ public class BuyerProductController {
     }
 
     @GetMapping("/abc")
-    @ResponseBody
     public void sss(){
         System.out.println("成功");
+
     }
 }
