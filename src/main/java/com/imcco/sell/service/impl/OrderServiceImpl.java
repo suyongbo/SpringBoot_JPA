@@ -13,6 +13,7 @@ import com.imcco.sell.exception.SellException;
 import com.imcco.sell.repository.OrderDetailRepository;
 import com.imcco.sell.repository.OrderMasterRepository;
 import com.imcco.sell.service.OrderService;
+import com.imcco.sell.service.PayService;
 import com.imcco.sell.service.ProductInfoService;
 import com.imcco.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +47,9 @@ public class OrderServiceImpl  implements OrderService {
 
     @Autowired
     private OrderMasterRepository orderMasterRepository;//订单主表DAO
+
+    @Autowired
+    private PayService payService;
 
     /**
      * 创建订单
@@ -173,7 +177,9 @@ public class OrderServiceImpl  implements OrderService {
 
         productInfoService.increaseStock(cartDTOList);
         //4.如果已经支付，需要退款
-        //TODO
+        if(orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())){
+                payService.refund(orderDTO);
+        }
         return orderDTO;
     }
 
