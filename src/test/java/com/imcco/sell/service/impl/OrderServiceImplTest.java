@@ -31,7 +31,7 @@ public class OrderServiceImplTest {
     @Test
     public void create() {
         OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setBuyerName("苏永波");
+        orderDTO.setBuyerName("慕微凉");
         orderDTO.setBuyerAddress("地球");
         orderDTO.setBuyerPhone("123456789012");
         orderDTO.setBuyerOpenid(BUYER_OPENID);
