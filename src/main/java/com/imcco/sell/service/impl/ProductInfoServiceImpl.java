@@ -48,14 +48,45 @@ public class ProductInfoServiceImpl implements ProductInfoService {
         return repository.save(productInfo);
     }
 
+    /**
+     * 上架
+     * @param productId
+     * @return
+     */
     @Override
     public ProductInfo onSale(String productId) {
-        return null;
+        ProductInfo productInfo = repository.findById(productId).get();
+        if(productInfo==null){
+            throw  new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        //判断商品是什么状态（上架还是下架）
+        if(productInfo.getProductStatusEnum()==ProductStatusEnum.UP){
+            throw  new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+        //改变状态
+        productInfo.setProductStatus(ProductStatusEnum.UP.getCode());
+        return  repository.save(productInfo);
+
     }
 
+    /**
+     * 下架
+     * @param productId
+     * @return
+     */
     @Override
     public ProductInfo offSale(String productId) {
-        return null;
+        ProductInfo productInfo = repository.findById(productId).get();
+        if(productInfo==null){
+            throw  new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        //判断商品是什么状态（上架还是下架）
+        if(productInfo.getProductStatusEnum()==ProductStatusEnum.DOWN){
+            throw  new SellException(ResultEnum.PRODUCT_STATUS_ERROR);
+        }
+        //改变状态
+        productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
+        return  repository.save(productInfo);
     }
 
     /**
