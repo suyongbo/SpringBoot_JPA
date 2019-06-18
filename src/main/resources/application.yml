@@ -19,3 +19,5 @@ wechat:
 Spring:
   resources:
     static-locations: classpath:/
+#projectUrl:
+ # sell: http://127.0.0.1:8080

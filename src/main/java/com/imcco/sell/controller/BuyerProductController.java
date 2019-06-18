@@ -62,9 +62,4 @@ public class BuyerProductController {
         return ResultVOUtil.success(productVOList);
     }
 
-    @GetMapping("/abc")
-    public void sss(){
-        System.out.println("成功");
-
-    }
 }
