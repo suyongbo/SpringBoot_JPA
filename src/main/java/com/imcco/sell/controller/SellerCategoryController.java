@@ -19,6 +19,9 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 卖家
+ */
 @Controller
 @RequestMapping("/seller/category")
 public class SellerCategoryController {
