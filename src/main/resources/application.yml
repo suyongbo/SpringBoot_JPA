@@ -9,9 +9,13 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
+ # aop:
+  #  auto: true
+   # proxy-target-class: true
 server:
   servlet:
     context-path: /sell
+  port: 8080
 wechat:
   mpAppId: wx2fee82e63a973df5
   mpAppSecret: c63e4b131d36451d733fbbf48f80018d
@@ -25,3 +29,4 @@ projecturl:
   wechatMpAuthorize: http://godsu.mynatapp.cc
   wechatOpenAuthorize: http://godsu.mynatapp.cc
   sell: http://godsu.mynatapp.cc
+debug: true

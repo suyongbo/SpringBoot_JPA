@@ -45,21 +45,10 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <!--对象转为Json格式-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.binarywang</groupId>
-            <artifactId>weixin-java-mp</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.springboot</groupId>
-            <artifactId>best-pay-sdk</artifactId>
-            <version>1.1.0</version>
         </dependency>
 
         <dependency>
@@ -78,17 +67,24 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <!--微信公众平台  这里是开放平台和公众平台用一样的-->
+        <dependency>
             <groupId>com.github.binarywang</groupId>
             <artifactId>weixin-java-mp</artifactId>
             <version>3.0.0</version>
         </dependency>
 
+        <!--导入配置文件处理器，配置文件进行绑定就会有提示-->
         <dependency>
             <groupId> org.springframework.boot </groupId>
             <artifactId> spring-boot-configuration-processor</artifactId>
             <optional> true </optional>
         </dependency>
-
+        <!--微信支付第三方-->
         <dependency>
             <groupId>cn.springboot</groupId>
             <artifactId>best-pay-sdk</artifactId>
