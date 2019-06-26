@@ -12,9 +12,7 @@ import com.imcco.sell.enums.ResultEnum;
 import com.imcco.sell.exception.SellException;
 import com.imcco.sell.repository.OrderDetailRepository;
 import com.imcco.sell.repository.OrderMasterRepository;
-import com.imcco.sell.service.OrderService;
-import com.imcco.sell.service.PayService;
-import com.imcco.sell.service.ProductInfoService;
+import com.imcco.sell.service.*;
 import com.imcco.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -51,12 +49,21 @@ public class OrderServiceImpl  implements OrderService {
     @Autowired
     private PayService payService;
 
+    //微信
+    @Autowired
+    private  PushMessageService pushMessageService;
+
+    //客户
+    @Autowired
+    private WebSocket webSocket;
+
     /**
-     * 创建订单
+     * 创建订单  注意 只在有新的订单时客户端有消息推送
      * @param orderDTO
      * @return
      */
     @Override
+    @Transactional
     public OrderDTO create(OrderDTO orderDTO){
 
         //当订单一创建 就先产生订单的orderId
@@ -97,6 +104,9 @@ public class OrderServiceImpl  implements OrderService {
         List<CartDTO> cartDTOList = orderDTO.getOrderDetailList().stream().map(e ->
                 new CartDTO(e.getProductId(),e.getProductQuantity())).collect(Collectors.toList());
         productInfoService.decreaseStock(cartDTOList);
+
+        //发送webSocket消息
+        webSocket.sendMessage(orderDTO.getOrderId());
 
         return orderDTO;
     }
@@ -184,7 +194,7 @@ public class OrderServiceImpl  implements OrderService {
     }
 
     /**
-     * 完结订单
+     * 完结订单  注意这里只有在完结订单时才向微信推送消息
      * @param orderDTO
      * @return
      */
@@ -205,6 +215,9 @@ public class OrderServiceImpl  implements OrderService {
             log.error("【完结订单】更新失败，orderMaster={}",orderMaster);
             throw  new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
+        //推送微信模板消息
+        pushMessageService.orderStatus(orderDTO);
+
         return orderDTO;
     }
 

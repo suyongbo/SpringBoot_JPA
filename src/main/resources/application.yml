@@ -9,24 +9,29 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
- # aop:
-  #  auto: true
-   # proxy-target-class: true
+  aop:
+    auto: true
+    proxy-target-class: true
 server:
   servlet:
     context-path: /sell
   port: 8080
 wechat:
+#微信公众平台
   mpAppId: wx2fee82e63a973df5
   mpAppSecret: c63e4b131d36451d733fbbf48f80018d
+#微信开放平台
   openAppId: wxd898fcb01713c658
   openAppSecret: 47ccc303338cee6e62894fxxxxxxxxxxx
+#微信支付退款
   mchId: 1483469312
   mchKey: 06C56A89949D617xxxxxxxxxxx
   keyPath: /var/weixin_cert/h5.p12
   notifyUrl: http://godsu.mynatapp.cc/sell/pay/notify
+#微信消息推送
+  template-id:
+    orderStatus: g533D4AKN4WqZ87S7ylXt9a8rL6O5fENpwplHy1Bl2A
 projecturl:
   wechatMpAuthorize: http://godsu.mynatapp.cc
   wechatOpenAuthorize: http://godsu.mynatapp.cc
   sell: http://godsu.mynatapp.cc
-debug: true
