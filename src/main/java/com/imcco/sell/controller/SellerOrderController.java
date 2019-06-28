@@ -61,11 +61,11 @@ public class SellerOrderController {
         }catch (SellException e){
             log.info("【卖家端取消订单】发生异常{}",e);
             map.put("msg",e.getMessage());
-            map.put("url","http://127.0.0.1:8080/sell/seller/order/list");
+            map.put("url","/sell/seller/order/list");
             return new ModelAndView("common/error",map);
         }
         map.put("msg", ResultEnum.ORDER_CANCEL_SUCCESS.getMessage());
-        map.put("url","http://127.0.0.1:8080/sell/seller/order/list");
+        map.put("url","/sell/seller/order/list");
         return   new ModelAndView("common/success");
     }
 
@@ -84,7 +84,7 @@ public class SellerOrderController {
         }catch (SellException e){
             log.info("【卖家端查询订单详情】发生异常{}",e);
             map.put("msg",e.getMessage());
-            map.put("url","http://127.0.0.1:8080/sell/seller/order/list");
+            map.put("url","/sell/seller/order/list");
             return new ModelAndView("common/error",map);
         }
         map.put("orderDTO",orderDTO);
@@ -107,7 +107,7 @@ public class SellerOrderController {
         }catch (SellException e){
             log.info("【卖家端完结订单】发生异常{}",e);
             map.put("msg",e.getMessage());
-            map.put("url","http://127.0.0.1:8080/sell/seller/order/list");
+            map.put("url","/sell/seller/order/list");
             return new ModelAndView("common/error",map);
         }
         map.put("msg", ResultEnum.ORDER_FINISH_SUCCESS.getMessage());

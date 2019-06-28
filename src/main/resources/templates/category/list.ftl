@@ -3,13 +3,13 @@
     <meta charset="utf-8">
     <title>卖家后端管理系统</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-<#--<link rel="stylesheet" href="/css/style.css" media="all">-->
+    <link rel="stylesheet" href="http://godsu.mynatapp.cc/sell/css/style.css" media="all">
 
 <body>
 <div id="wrapper" class="toggled">
 
     <#--边栏sidebar-->
-  <#--  <#include "../common/nav.ftl">-->
+  <#include "../common/nav.ftl">
 
     <#--主要内容content-->
     <div id="page-content-wrapper">
@@ -36,7 +36,7 @@
                             <td>${category.categoryType}</td>
                             <td><#--${category.createTime}--></td>
                             <td><#--${category.updateTime}--></td>
-                            <td><a href="http://127.0.0.1:8080/sell/seller/category/index?categoryId=${category.categoryId}">修改</a></td>
+                            <td><a href="/sell/seller/category/index?categoryId=${category.categoryId}">修改</a></td>
                         </tr>
                         </#list>
                         </tbody>

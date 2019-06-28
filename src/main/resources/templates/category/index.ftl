@@ -3,20 +3,20 @@
     <meta charset="utf-8">
     <title>卖家后端管理系统</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-<#--<link rel="stylesheet" href="/css/style.css" media="all">-->
+    <link rel="stylesheet" href="http://godsu.mynatapp.cc/sell/css/style.css" media="all">
 
 <body>
 <div id="wrapper" class="toggled">
 
 <#--边栏sidebar-->
-<#--<#include "../common/nav.ftl">-->
+<#include "../common/nav.ftl">
 
 <#--主要内容content-->
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-md-12 column">
-                    <form role="form" method="post" action="http://127.0.0.1:8080/sell/seller/category/save">
+                    <form role="form" method="post" action="/sell/seller/category/save">
                         <div class="form-group">
                             <label>名字</label>
                             <input name="categoryName" type="text" class="form-control" value="${(productCategory.categoryName)!''}"/>

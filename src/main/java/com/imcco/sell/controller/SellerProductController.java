@@ -62,10 +62,10 @@ public class SellerProductController {
             productInfoService.onSale(productId);
         }catch (SellException e){
             map.put("msg",e.getMessage());
-            map.put("url","http://127.0.0.1:8080/sell/seller/product/list");
+            map.put("url","/sell/seller/product/list");
             return  new ModelAndView("common/error",map);
         }
-        map.put("url","http://127.0.0.1:8080/sell/seller/product/list");
+        map.put("url","/sell/seller/product/list");
         return  new ModelAndView("common/success",map);
     }
 
@@ -82,10 +82,10 @@ public class SellerProductController {
             productInfoService.offSale(productId);
         }catch (SellException e){
             map.put("msg",e.getMessage());
-            map.put("url","http://127.0.0.1:8080/sell/seller/product/list");
+            map.put("url","/sell/seller/product/list");
             return  new ModelAndView("common/error",map);
         }
-        map.put("url","http://127.0.0.1:8080/sell/seller/product/list");
+        map.put("url","/sell/seller/product/list");
         return  new ModelAndView("common/success",map);
     }
 
@@ -118,7 +118,7 @@ public class SellerProductController {
         //先判断form是否有错误  这里的form我没有做之前的验证
         if(bindingResult.hasErrors()){//如果有错误
             map.put("msg",bindingResult.getFieldError().getDefaultMessage());
-            map.put("url","http://127.0.0.1:8080/sell/seller/product/index");
+            map.put("url","/sell/seller/product/index");
             return  new ModelAndView("common/error",map);
         }
         ProductInfo productInfo = new ProductInfo();
@@ -136,11 +136,11 @@ public class SellerProductController {
             productInfoService.save(productInfo);
         }catch(SellException e){
             map.put("msg",e.getMessage());
-            map.put("url","http://127.0.0.1:8080/sell/seller/product/index");
+            map.put("url","/sell/seller/product/index");
             return new ModelAndView("common/error",map);
         }
 
-        map.put("url","http://127.0.0.1:8080/sell/seller/product/list");
+        map.put("url","/sell/seller/product/list");
         return  new ModelAndView("common/success",map);
     }
 }

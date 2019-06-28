@@ -73,7 +73,7 @@ public class SellerCategoryController {
         if(bindingResult.hasErrors()){
             //有错误时
             map.put("msg",bindingResult.getFieldError().getDefaultMessage());
-            map.put("url","http://127.0.0.1:8080/sell/seller/category/index");
+            map.put("url","/sell/seller/category/index");
             return  new ModelAndView("common/error",map);
         }
         ProductCategory productCategory = new ProductCategory();

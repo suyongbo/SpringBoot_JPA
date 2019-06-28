@@ -3,14 +3,14 @@
     <meta charset="utf-8">
     <title>卖家后端管理系统</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <#--<link rel="stylesheet" href="/css/style.css" media="all">-->
+    <link rel="stylesheet" href="http://godsu.mynatapp.cc/sell/css/style.css" media="all">
 
 </head>
 
 <body>
 <div id="wrapper" class="toggled">
     <#--边栏sidebar-->
-    <#--<#include "../common/nav.ftl">-->
+    <#include "../common/nav.ftl">
 
     <#--主要内容-->
     <div id="page-content-wrapper">
@@ -45,12 +45,12 @@
                                 <td>${productInfo.categoryType}</td>
                                 <td><#--${productInfo.createTime}--></td>
                                 <td><#--${productInfo.updateTime}--></td>
-                                <td><a href="http://127.0.0.1:8080/sell/seller/product/index?productId=${productInfo.productId}">修改</a></td>
+                                <td><a href="/sell/seller/product/index?productId=${productInfo.productId}">修改</a></td>
                                 <td>
                                 <#if productInfo.getProductStatusEnum().message == "在架">
-                                    <a href="http://127.0.0.1:8080/sell/seller/product/offSale?productId=${productInfo.productId}">下架</a>
+                                    <a href="/sell/seller/product/offSale?productId=${productInfo.productId}">下架</a>
                                 <#else>
-                                    <a href="http://127.0.0.1:8080/sell/seller/product/onSale?productId=${productInfo.productId}">上架</a>
+                                    <a href="/sell/seller/product/onSale?productId=${productInfo.productId}">上架</a>
                                 </#if>
                                 </td>
                             </tr>
